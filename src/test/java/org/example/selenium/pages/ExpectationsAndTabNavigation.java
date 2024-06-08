@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ExpectationsAndTabNavigation {
     private WebDriver driver;
 
@@ -24,6 +26,12 @@ public class ExpectationsAndTabNavigation {
         ArrayList tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1).toString());
         System.out.println("Переключение вкладки");
+    }
+
+    public void URLCheck(){
+        String URL = driver.getCurrentUrl();
+        assertEquals(URL, "https://www.selenium.dev/");
+        System.out.println("Проверка соответсвия URL при первом переходе");
     }
 
     public ExpectationsAndTabNavigation (WebDriver driver) {

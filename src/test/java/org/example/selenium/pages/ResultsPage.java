@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ResultsPage {
     @FindBy(css = "#sb_form_q")
     private WebElement searchField;

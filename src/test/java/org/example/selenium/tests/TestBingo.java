@@ -57,16 +57,13 @@ public class TestBingo {
     public void searchResultTest() {
         String input = "Selenium";
         MainPage mp = new MainPage(driver);
-        mp.sendText(input);
-
-        ExpectationsAndTabNavigation ost = new ExpectationsAndTabNavigation(driver);
-        ost.expectation();
-
         ResultsPage rp = new ResultsPage(driver);
+        ExpectationsAndTabNavigation ost = new ExpectationsAndTabNavigation(driver);
+
+        mp.sendText(input);
+        ost.expectation();
         rp.clickElement(0);
         ost.switchTab();
-
-        String URL = driver.getCurrentUrl();
-        assertEquals(URL, "https://www.selenium.dev/");
+        ost.URLCheck();
     }
 }
